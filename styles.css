@@ -426,14 +426,26 @@ h3 {
 }
 
 .agent-strip div {
+    display: grid;
+    grid-template-columns: 1fr minmax(108px, 0.34fr);
+    gap: 18px;
+    align-items: center;
     padding: 18px 20px;
     background:
         linear-gradient(135deg, rgba(24, 184, 239, 0.12), transparent 58%),
         rgba(16, 24, 29, 0.96);
 }
 
+.agent-strip img {
+    width: 100%;
+    max-width: 180px;
+    height: 66px;
+    object-fit: contain;
+    justify-self: end;
+}
+
 .agent-strip strong,
-.agent-strip span {
+.agent-strip small {
     display: block;
 }
 
@@ -443,7 +455,7 @@ h3 {
     font-weight: 620;
 }
 
-.agent-strip span {
+.agent-strip small {
     color: var(--muted);
     font-size: 0.92rem;
     font-weight: 330;
@@ -721,6 +733,10 @@ h3 {
     .agent-strip,
     .service-grid,
     .support-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .agent-strip div {
         grid-template-columns: 1fr;
     }
 

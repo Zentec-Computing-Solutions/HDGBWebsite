@@ -29,14 +29,21 @@ navLinks.forEach((link) => {
 });
 
 const highlightNav = () => {
-  const marker = window.scrollY + 160;
+  const pageBottom =
+    window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+  const marker = header.offsetHeight + 140;
   let activeId = sections[0]?.id;
 
-  sections.forEach((section) => {
-    if (section.offsetTop <= marker) {
-      activeId = section.id;
-    }
-  });
+  if (pageBottom) {
+    activeId = sections[sections.length - 1]?.id;
+  } else {
+    sections.forEach((section) => {
+      if (section.getBoundingClientRect().top <= marker) {
+        activeId = section.id;
+      }
+    });
+  }
+
 
   navLinks.forEach((link) => {
     link.classList.toggle("is-active", link.getAttribute("href") === `#${activeId}`);

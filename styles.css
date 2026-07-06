@@ -1,4 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..900&display=swap");
+
 :root {
+    --font-sans:
+        "Google Sans Flex", "Google Sans", "Product Sans", Arial, Helvetica,
+        sans-serif;
     --bg: #050708;
     --bg-soft: #0b1114;
     --panel: #10181d;
@@ -26,7 +31,9 @@ html {
 
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-sans);
+    font-optical-sizing: auto;
+    font-weight: 360;
     color: var(--text);
     background:
         radial-gradient(
@@ -121,6 +128,7 @@ a {
 
 .brand strong {
     font-size: 1rem;
+    font-weight: 720;
     text-transform: uppercase;
 }
 
@@ -128,6 +136,7 @@ a {
     margin-top: 4px;
     color: var(--muted);
     font-size: 0.78rem;
+    font-weight: 430;
     letter-spacing: 0.12em;
     text-transform: uppercase;
 }
@@ -144,7 +153,7 @@ a {
     border: 1px solid transparent;
     border-radius: 999px;
     font-size: 0.92rem;
-    font-weight: 700;
+    font-weight: 560;
     transition:
         color 180ms ease,
         border-color 180ms ease,
@@ -198,7 +207,7 @@ a {
     margin: 0 0 14px;
     color: var(--cyan);
     font-size: 0.8rem;
-    font-weight: 800;
+    font-weight: 620;
     letter-spacing: 0.14em;
     text-transform: uppercase;
 }
@@ -214,6 +223,7 @@ h1 {
     max-width: 720px;
     margin-bottom: 22px;
     font-size: clamp(2.55rem, 6vw, 5.7rem);
+    font-weight: 680;
     line-height: 0.96;
     letter-spacing: 0;
 }
@@ -221,6 +231,7 @@ h1 {
 h2 {
     margin-bottom: 18px;
     font-size: clamp(2rem, 4vw, 3.65rem);
+    font-weight: 620;
     line-height: 1.02;
     letter-spacing: 0;
 }
@@ -228,6 +239,7 @@ h2 {
 h3 {
     margin-bottom: 10px;
     font-size: 1.1rem;
+    font-weight: 560;
     line-height: 1.2;
 }
 
@@ -238,6 +250,7 @@ h3 {
 .contact-grid p {
     color: var(--muted);
     font-size: 1.05rem;
+    font-weight: 340;
 }
 
 .hero-actions {
@@ -254,7 +267,7 @@ h3 {
     min-height: 48px;
     padding: 12px 18px;
     border-radius: 999px;
-    font-weight: 800;
+    font-weight: 620;
     transition:
         transform 180ms ease,
         border-color 180ms ease,
@@ -369,11 +382,13 @@ h3 {
 .quick-strip strong {
     color: var(--steel);
     font-size: 1.1rem;
+    font-weight: 620;
 }
 
 .quick-strip span {
     color: var(--muted);
     font-size: 0.92rem;
+    font-weight: 330;
 }
 
 .split-section,
@@ -383,10 +398,7 @@ h3 {
 }
 
 .section-heading {
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: 36px;
-    align-items: start;
+    max-width: 740px;
     margin-bottom: 34px;
 }
 
@@ -420,6 +432,7 @@ h3 {
 .support-grid p {
     color: var(--muted);
     font-size: 0.95rem;
+    font-weight: 330;
 }
 
 .icon {
@@ -433,7 +446,7 @@ h3 {
     border-radius: 14px;
     background: linear-gradient(180deg, var(--steel), #7f898d);
     font-size: 0.82rem;
-    font-weight: 900;
+    font-weight: 700;
 }
 
 .dark-band {
@@ -515,15 +528,28 @@ h3 {
     padding: 24px;
 }
 
-.contact-card img {
-    width: 138px;
-    height: 138px;
+.contact-logo-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 142px;
     margin-bottom: 22px;
-    border: 2px solid var(--cyan);
-    border-radius: 22px;
-    object-fit: cover;
+    padding: 22px;
+    overflow: hidden;
+    border-radius: 16px;
+    background:
+        radial-gradient(circle at 78% 18%, rgba(24, 184, 239, 0.48), transparent 34%),
+        radial-gradient(circle at 16% 80%, rgba(8, 122, 167, 0.32), transparent 36%),
+        linear-gradient(135deg, #020304 0%, #071016 46%, #0f2c38 100%);
+}
+
+.contact-logo-wrap img {
+    width: min(100%, 360px);
+    height: auto;
+    object-fit: contain;
     object-position: center;
-    background: #fff;
+    mix-blend-mode: screen;
+    filter: contrast(1.08) saturate(1.12);
 }
 
 .contact-lines {
@@ -548,6 +574,15 @@ h3 {
     color: var(--muted);
 }
 
+.contact-lines a {
+    color: inherit;
+    transition: color 180ms ease;
+}
+
+.contact-lines a:hover {
+    color: var(--cyan);
+}
+
 .site-footer {
     display: flex;
     align-items: center;
@@ -564,7 +599,7 @@ h3 {
 
 .site-footer a {
     color: var(--cyan);
-    font-weight: 800;
+    font-weight: 620;
 }
 
 @media (max-width: 980px) {
